@@ -32,7 +32,12 @@ export default function List() {
     const Del = (recebeItemIdFunction) =>{
       const filterList = talkList.filter(item => item.id !== recebeItemIdFunction)
       setTalkList(filterList)
-    } 
+    }
+
+    const DelTudo = () =>{
+      const erase = talkList.filter(item => item.id === "")
+      setTalkList(erase)
+    }
 
   return(
     <>
@@ -41,6 +46,7 @@ export default function List() {
           <S.Menu>Lista de Tarefas</S.Menu>
            <input value={input} onChange={(e)=>{setInput(e.target.value)}} />
            <button onClick={()=>{Add()}}>Adicionar</button>
+           <button onClick={()=>{DelTudo()}}>Apagar tudo</button>
            <ul>{talkList.map((item)=>        
                <S.Li>
                <li>
